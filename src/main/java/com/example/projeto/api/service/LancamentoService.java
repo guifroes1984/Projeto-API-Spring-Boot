@@ -11,11 +11,10 @@ import com.example.projeto.api.service.exception.PessoaInexistenteOuInativaExcep
 
 @Service
 public class LancamentoService {
-<<<<<<< HEAD
-	
+
 	@Autowired
 	private PessoaRepository pessoaRepository;
-	
+
 	@Autowired 
 	private LancamentoRepository lancamentoRepository;
 
@@ -24,26 +23,8 @@ public class LancamentoService {
 		if (pessoa == null || pessoa.isInativo()) {
 			throw new PessoaInexistenteOuInativaException();
 		}
-		
+
 		return lancamentoRepository.save(lancamento);
 	}
-	
-=======
 
-    @Autowired
-    private PessoaRepository pessoaRepository;
-
-    @Autowired
-    private LancamentoRepository lancamentoRepository;
-
-    public Lancamento salvar(Lancamento lancamento) {
-        Pessoa pessoa = pessoaRepository.findOne(lancamento.getPessoa().getCodigo());
-
-        if (pessoa == null || pessoa.isInativo()) {
-            throw new PessoaInexistenteOuInativaException();
-        }
-
-        return lancamentoRepository.save(lancamento);
-    }
->>>>>>> 58dbca354c04d0321aa071a087952ebe8edd9150
 }

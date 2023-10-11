@@ -53,11 +53,9 @@ public class Pessoa {
 		this.endereco = endereco;
 	}
 
-	@JsonIgnore
-    @Transient
-    public boolean isInativo() {
-        return !this.ativo;
-    }
+	public Boolean getAtivo() {
+		return ativo;
+	}
 
 	public void setAtivo(Boolean ativo) {
 		this.ativo = ativo;
