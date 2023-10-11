@@ -8,7 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+<<<<<<< HEAD
 import javax.persistence.GenerationType;
+=======
+>>>>>>> 58dbca354c04d0321aa071a087952ebe8edd9150
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,9 +23,15 @@ import javax.validation.constraints.NotNull;
 public class Lancamento {
 
 	@Id
+<<<<<<< HEAD
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 	
+=======
+	@GeneratedValue
+	private Long codigo;
+
+>>>>>>> 58dbca354c04d0321aa071a087952ebe8edd9150
 	@NotNull
 	private String descricao;
 
@@ -35,7 +44,11 @@ public class Lancamento {
 
 	@NotNull
 	private BigDecimal valor;
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 58dbca354c04d0321aa071a087952ebe8edd9150
 	private String observacao;
 
 	@NotNull
@@ -44,12 +57,20 @@ public class Lancamento {
 
 	@NotNull
 	@ManyToOne
+<<<<<<< HEAD
 	@JoinColumn(name = "codigo_categoria")
+=======
+	@JoinColumn(name = "idcategoria")
+>>>>>>> 58dbca354c04d0321aa071a087952ebe8edd9150
 	private Categoria categoria;
 
 	@NotNull
 	@ManyToOne
+<<<<<<< HEAD
 	@JoinColumn(name = "codigo_pessoa")
+=======
+	@JoinColumn(name = "idpessoa")
+>>>>>>> 58dbca354c04d0321aa071a087952ebe8edd9150
 	private Pessoa pessoa;
 
 	public Long getCodigo() {

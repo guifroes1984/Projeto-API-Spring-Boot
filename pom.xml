@@ -69,11 +69,30 @@
 		</dependency>
 		
 		<dependency>
+<<<<<<< HEAD
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.4</version>
 		</dependency>
 
+=======
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-java8</artifactId>
+        </dependency>
+
+        <!-- Jackson Support Datatype Java 8 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+        </dependency>
+		
+>>>>>>> 58dbca354c04d0321aa071a087952ebe8edd9150
 	</dependencies>
 
 	<build>
