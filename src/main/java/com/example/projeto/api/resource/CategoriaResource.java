@@ -23,13 +23,13 @@ import com.example.projeto.api.repository.CategoriaRepository;
 @RestController
 @RequestMapping("/categorias")
 public class CategoriaResource {
-	
+
 	@Autowired
 	private CategoriaRepository categoriaRepository;
 	
 	@Autowired
 	private ApplicationEventPublisher publisher;
-
+	
 	@GetMapping
 	public List<Categoria> listar() {
 		return categoriaRepository.findAll();
@@ -44,9 +44,8 @@ public class CategoriaResource {
 	
 	@GetMapping("/{codigo}")
 	public ResponseEntity<Categoria> buscarPeloCodigo(@PathVariable Long codigo) {
-		Categoria categoria = categoriaRepository.findOne(codigo);
-		
-		return categoria == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(categoria);
+		 Categoria categoria = categoriaRepository.findOne(codigo);
+		 return categoria != null ? ResponseEntity.ok(categoria) : ResponseEntity.notFound().build();
 	}
 	
 }
