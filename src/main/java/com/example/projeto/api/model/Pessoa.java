@@ -1,7 +1,5 @@
 package com.example.projeto.api.model;
 
-
-
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
