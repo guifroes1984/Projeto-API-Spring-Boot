@@ -12,4 +12,3 @@ public abstract class Permissao_ {
 	public static volatile SingularAttribute<Permissao, String> descricao;
 
 }
-

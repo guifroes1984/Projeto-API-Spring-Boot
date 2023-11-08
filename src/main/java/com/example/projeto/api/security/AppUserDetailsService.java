@@ -18,14 +18,14 @@ import com.example.projeto.api.repository.UsuarioRepository;
 
 @Service
 public class AppUserDetailsService implements UserDetailsService {
-	
+
 	@Autowired
 	private UsuarioRepository usuarioRepository;
-
+	
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		Optional<Usuario> usuarioOptional = usuarioRepository.findByEmail(email);
-		Usuario usuario = usuarioOptional.orElseThrow(() -> new UsernameNotFoundException("Ususário e/ou senha incorretos"));
+		Usuario usuario = usuarioOptional.orElseThrow(() -> new UsernameNotFoundException("Usuário e/ou senha incorretos"));
 		return new UsuarioSistema(usuario, getPermissoes(usuario));
 	}
 

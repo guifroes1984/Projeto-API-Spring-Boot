@@ -1,15 +1,12 @@
 package com.example.projeto.api.repository.projection;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import com.example.projeto.api.model.TipoLancamento;
 
-public class ResumoLancamento implements Serializable {
+public class ResumoLancamento {
 
-	private static final long serialVersionUID = 1L;
-	
 	private Long codigo;
 	private String descricao;
 	private LocalDate dataVencimento;
@@ -18,7 +15,7 @@ public class ResumoLancamento implements Serializable {
 	private TipoLancamento tipo;
 	private String categoria;
 	private String pessoa;
-
+	
 	public ResumoLancamento(Long codigo, String descricao, LocalDate dataVencimento, LocalDate dataPagamento,
 			BigDecimal valor, TipoLancamento tipo, String categoria, String pessoa) {
 		this.codigo = codigo;
