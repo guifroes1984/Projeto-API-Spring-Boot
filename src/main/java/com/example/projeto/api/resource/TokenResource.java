@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.projeto.api.config.property.ApiProperty;
 
-@Profile("oauth-security")
+@Profile("basic-security")
 @RestController
 @RequestMapping("/tokens")
 public class TokenResource {

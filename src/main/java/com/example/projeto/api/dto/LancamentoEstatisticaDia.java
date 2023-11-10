@@ -6,12 +6,17 @@ import java.time.LocalDate;
 import com.example.projeto.api.model.TipoLancamento;
 
 public class LancamentoEstatisticaDia {
-
+	
 	private TipoLancamento tipo;
-
+	
 	private LocalDate dia;
-
+	
 	private BigDecimal total;
+	
+	
+
+	public LancamentoEstatisticaDia() {
+	}
 
 	public LancamentoEstatisticaDia(TipoLancamento tipo, LocalDate dia, BigDecimal total) {
 		this.tipo = tipo;
@@ -42,5 +47,4 @@ public class LancamentoEstatisticaDia {
 	public void setTotal(BigDecimal total) {
 		this.total = total;
 	}
-
 }

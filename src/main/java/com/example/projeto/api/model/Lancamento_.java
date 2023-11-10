@@ -2,7 +2,6 @@ package com.example.projeto.api.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
 import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;

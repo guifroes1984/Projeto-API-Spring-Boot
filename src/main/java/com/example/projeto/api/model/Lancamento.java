@@ -1,6 +1,5 @@
 package com.example.projeto.api.model;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -18,14 +17,12 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "lancamento")
-public class Lancamento implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+public class Lancamento {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
-
+	
 	@NotNull
 	private String descricao;
 
