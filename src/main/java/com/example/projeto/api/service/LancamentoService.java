@@ -44,7 +44,7 @@ public class LancamentoService {
 		InputStream inputStream = this.getClass().getResourceAsStream(
 				"/relatorios/lancamento-por-pessoa.jasper");
 		
-		JasperPrint jasperPrint = JasperFillManager.fillReport(inputStream, parametros, 
+		JasperPrint jasperPrint = JasperFillManager.fillReport(inputStream, parametros,
 				new JRBeanCollectionDataSource(dados));
 		
 		return JasperExportManager.exportReportToPdf(jasperPrint);

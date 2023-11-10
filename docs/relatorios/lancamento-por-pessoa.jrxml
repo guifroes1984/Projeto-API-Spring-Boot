@@ -77,7 +77,7 @@
 				<textFieldExpression><![CDATA[$F{pessoa}.getNome()]]></textFieldExpression>
 			</textField>
 			<textField pattern="¤#,##0.00;¤-#,##0.00">
-				<reportElement stretchType="RelativeToTallestObject" x="495" y="1" width="54" height="24" uuid="5c413dc6-b5cf-43ec-b444-597100fde880"/>
+				<reportElement stretchType="RelativeToTallestObject" x="481" y="1" width="68" height="24" uuid="5c413dc6-b5cf-43ec-b444-597100fde880"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
 			</textField>
