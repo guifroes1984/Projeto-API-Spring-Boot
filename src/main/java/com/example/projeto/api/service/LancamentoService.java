@@ -14,10 +14,13 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.example.projeto.api.dto.LancamentoEstatisticaPessoa;
+import com.example.projeto.api.mail.Mailer;
 import com.example.projeto.api.model.Lancamento;
 import com.example.projeto.api.model.Pessoa;
+import com.example.projeto.api.model.Usuario;
 import com.example.projeto.api.repository.LancamentoRepository;
 import com.example.projeto.api.repository.PessoaRepository;
+import com.example.projeto.api.repository.UsuarioRepository;
 import com.example.projeto.api.service.exception.PessoaInexistenteOuInativaException;
 
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -27,6 +30,8 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 @Service
 public class LancamentoService {
+	
+	private static final String DESTINATARIOS = "ROLE_PESQUISAR_LANCAMENTO";
 
 	@Autowired
 	private PessoaRepository pessoaRepository;
@@ -34,9 +39,22 @@ public class LancamentoService {
 	@Autowired
 	private LancamentoRepository lancamentoRepository;
 	
-	@Scheduled(cron = "0 0 6 * * *") /*Metodo de agendamento para execução. No caso aqui está todos os dia a 6h da manhã.*/
+	@Autowired
+	private Mailer mailer; 
+
+	@Autowired
+	private UsuarioRepository usuarioRepository;
+	
+	// @Scheduled(cron = "0 0 6 * * *") /*Metodo de agendamento para execução. No caso aqui está todos os dia a 6h da manhã.*/
+	@Scheduled(fixedDelay = 1000 * 60 * 30)
 	public void avisarSobreLancamentosVencidos() {
-		System.out.println(">>>>>>>>>>>> Método sendo executado....");
+		List<Lancamento> vencidos = lancamentoRepository
+				.findByDataVencimentoLessThanEqualAndDataPagamentoIsNull(LocalDate.now());
+		
+		List<Usuario> destinatarios = usuarioRepository
+				.findByPermissoesDescricao(DESTINATARIOS);
+		
+		mailer.avisarSobreLancamentosVencidos(vencidos, destinatarios);
 	}
 	
 	public byte[] relatorioPorPessoa(LocalDate inicio, LocalDate fim) throws Exception {
